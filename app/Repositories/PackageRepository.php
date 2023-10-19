@@ -19,7 +19,6 @@ class PackageRepository implements PackageRepositoryInterface
     {
         try {
             $package = $this->package->all();
-
             return response()->json($package, Response::HTTP_OK);
 
         } catch (\Exception $e) {
@@ -30,9 +29,9 @@ class PackageRepository implements PackageRepositoryInterface
     public function find($id)
     {
         try {
-            $package = $this->package->where(["transaction_id" => $id])->get();
+            $package = $this->package->where(["transaction_id" => $id])->first();
 
-            if ($package->isEmpty()) {
+            if (!$package) {
                 return response()->json(['message' => "Package Not Found"], Response::HTTP_OK);
             }
 
@@ -59,7 +58,7 @@ class PackageRepository implements PackageRepositoryInterface
                 throw new \Exception("Package was not created");
             }
 
-            return response()->json(['message' => "Package created"], Response::HTTP_OK);
+            return response()->json(['message' => "Package created"], Response::HTTP_CREATED);
 
         } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);

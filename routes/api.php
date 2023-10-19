@@ -19,7 +19,7 @@ use App\Http\Controllers\PackageController;
 //     return $request->user();
 // });
 
-Route::get('/package', [PackageController::class,'index']);
+Route::get('/package', [PackageController::class, 'index']);
 Route::get('/package/{id}', [PackageController::class, 'find']);
 
 Route::post('/package', [PackageController::class, 'insert']);

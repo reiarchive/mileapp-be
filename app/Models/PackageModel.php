@@ -8,6 +8,7 @@ use Jenssegers\Mongodb\Eloquent\Model;
 class PackageModel extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'transaction_id',
         'customer_name',
