@@ -7,6 +7,7 @@ This Laravel-based API is designed to serve as the backend for the MileApp proje
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+- [Documentation](#documentation)
 - [Unit Test](#unit-tests)
 - [API Endpoints](#api-endpoints)
   - [GET Requests](#get-requests)
@@ -79,6 +80,10 @@ Before you begin, ensure you have met the following requirements:
    ```
 
 Your API should now be up and running.
+## Documentation
+Postman documentation :
+
+https://documenter.getpostman.com/view/8261198/2s9YRB1B7N
 
 ## Unit Tests
 
