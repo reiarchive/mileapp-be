@@ -24,7 +24,7 @@ class PackageRequest extends FormRequest
     public function rules()
     {
 
-        if ($this->isMethod('put')) {
+        if ($this->isMethod('put') || $this->isMethod('post')) {
             return [
                 'transaction_id' => 'required|string',
                 'customer_name' => 'required|string',

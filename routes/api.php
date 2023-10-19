@@ -19,4 +19,12 @@ use App\Http\Controllers\PackageController;
 //     return $request->user();
 // });
 
-Route::post('/testi', [PackageController::class, 'insert']);
+Route::get('/package', [PackageController::class,'index']);
+Route::get('/package/{id}', [PackageController::class, 'find']);
+
+Route::post('/package', [PackageController::class, 'insert']);
+
+Route::put('/package/{id}', [PackageController::class, 'put']);
+Route::patch('/package/{id}', [PackageController::class, 'patch']);
+
+Route::delete('/package/{id}', [PackageController::class, 'delete']);

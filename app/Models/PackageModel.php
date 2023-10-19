@@ -34,5 +34,15 @@ class PackageModel extends Model
         'custom_field',
         'currentLocation',
     ];
-    
+
+    // public function createIndex()
+    // {
+    //     $schema = $this->getConnection()->getSchemaBuilder();
+
+    //     // Define a unique index for the 'transaction_id' field
+    //     $schema->create('package_models', function ($collection) {
+    //         $collection->unique('transaction_id');
+    //     });
+    // }
+
 }

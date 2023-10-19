@@ -22,12 +22,12 @@ class PackageService {
         return $this->PackageRepository->create($data);
     }
 
-    public function put($id, array $data) {
-        return $this->PackageRepository->put($id, $data);
+    public function put(array $data, $id) {
+        return $this->PackageRepository->put($data, $id);
     }
 
-    public function patch($id, array $data) {
-        return $this->PackageRepository->patch($id, $data);
+    public function patch(array $data, $id) {
+        return $this->PackageRepository->patch($data, $id);
     }
 
     public function delete($id) {
