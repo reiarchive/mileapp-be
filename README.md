@@ -97,7 +97,7 @@ php artisan test
 
 ### GET Requests
 
-- **Get a List of Resources**
+- **Get a List of Packages**
 
   ```
   GET /api/package
@@ -105,7 +105,7 @@ php artisan test
 
   Description: Retrieve a list of packages.
 
-- **Get a Specific Resource**
+- **Get a Specific Package**
 
   ```
   GET /api/package/{transaction_id}
@@ -115,7 +115,7 @@ php artisan test
 
 ### POST Requests
 
-- **Create a New Resource**
+- **Create a New Package**
 
   ```
   POST /api/package
@@ -125,17 +125,17 @@ php artisan test
 
 ### PUT Requests
 
-- **Update a Resource**
+- **Update a Package**
 
   ```
   PUT /api/package/{transaction_id}
   ```
 
-  Description: Update or Insert an existing package.
+  Description: Update or Insert package if not exists.
 
 ### PATCH Requests
 
-- **Partially Update a Resource**
+- **Partially Update a Package**
 
   ```
   PATCH /api/package/{transaction_id}
@@ -145,10 +145,10 @@ php artisan test
 
 ### DELETE Requests
 
-- **Delete a Resource**
+- **Delete a Package**
 
   ```
   DELETE /api/package/{transaction_id}
   ```
 
-  Description: Delete a resource by its transaction_id.
+  Description: Delete a Package by its transaction_id.
