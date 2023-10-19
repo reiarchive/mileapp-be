@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class PackageTest extends TestCase
@@ -14,8 +12,12 @@ class PackageTest extends TestCase
      *
      * @return void
      */
+
+
     public function testInsert()
     {
+        $this->artisan('migrate:fresh');
+
         $data = $this->getMockData();
 
         $response = $this->post('/api/package', $data);
@@ -28,9 +30,8 @@ class PackageTest extends TestCase
 
     public function testIndex()
     {
-        // Your test code for the 'index' method
-        $response = $this->get('/api/package'); // Replace with your actual route
-        $response->assertStatus(200); // Ensure a successful response status
+        $response = $this->get('/api/package');
+        $response->assertStatus(200);
     }
 
     public function testFind()
@@ -38,7 +39,7 @@ class PackageTest extends TestCase
         $data = $this->getMockData();
 
         $response = $this->get('/api/package/' . $data['transaction_id']);
-        $response->assertStatus(200); // Ensure a successful response status
+        $response->assertStatus(200);
 
         $response->assertJson([
             'transaction_id' => $data['transaction_id'],
@@ -51,7 +52,7 @@ class PackageTest extends TestCase
         $data['customer_name'] = "CHANGED BY PUT";
 
         $response = $this->put('/api/package/' . $data['transaction_id'], $data);
-        $response->assertStatus(200); // Ensure a successful response status
+        $response->assertStatus(200);
 
         $response->assertJson([
             'message' => 'Package updated successfully'
@@ -69,10 +70,23 @@ class PackageTest extends TestCase
         ];
 
         $response = $this->patch('/api/package/' . $data['transaction_id']);
-        $response->assertStatus(200); // Ensure a successful response status
+        $response->assertStatus(200);
 
         $response->assertJson([
             'message' => 'Package updated successfully'
+        ]);
+    }
+
+    public function testDelete()
+    {
+        $data = $this->getMockData();
+
+
+        $response = $this->delete('/api/package/' . $data['transaction_id']);
+        $response->assertStatus(200);
+
+        $response->assertJson([
+            'message' => 'Package deleted'
         ]);
     }
 
